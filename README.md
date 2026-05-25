@@ -1,6 +1,6 @@
 # Smart Inventory & Sales Intelligence System
 
-> A full-stack MERN application for retail shop owners to manage products, track inventory, and monitor sales — powered by an AI Business Assistant built on Google Gemini that analyzes real store data and answers questions like *"What should I restock?"* or *"Which product sells the most?"*
+> A full-stack MERN application for retail shop owners to manage products, track inventory, and monitor sales powered by an AI Business Assistant built on Google Gemini that analyzes real store data and answers questions like *"What should I restock?"* or *"Which product sells the most?"*
 
 ---
 
