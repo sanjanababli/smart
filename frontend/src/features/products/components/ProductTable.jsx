@@ -1,14 +1,14 @@
 const getStockStatus = (stock, threshold) => {
-  if (stock <= 0) return { label: "Out of Stock", cls: "pp-stock-badge--out" };
-  if (stock <= threshold) return { label: "Low Stock", cls: "pp-stock-badge--low" };
-  return { label: "In Stock", cls: "pp-stock-badge--in" };
+  if (stock <= 0)          return { label: "Out of Stock", cls: "pp-stock-badge--out" };
+  if (stock <= threshold)  return { label: "Low Stock",    cls: "pp-stock-badge--low" };
+  return                          { label: "In Stock",     cls: "pp-stock-badge--in"  };
 };
 
 const ProductTable = ({ products, onEdit, onDelete }) => {
   if (!products.length) {
     return (
       <div className="pp-empty">
-        <div className="pp-empty-icon">📦</div>
+        <div className="pp-empty-icon" style={{ fontSize: 32, opacity: 0.3 }}>&#9633;</div>
         <p>No products found.</p>
       </div>
     );
@@ -18,7 +18,7 @@ const ProductTable = ({ products, onEdit, onDelete }) => {
     <table className="pp-table">
       <thead>
         <tr>
-          <th>Product Name</th>
+          <th>Product</th>
           <th>Category</th>
           <th>Price</th>
           <th>Cost</th>
@@ -35,14 +35,41 @@ const ProductTable = ({ products, onEdit, onDelete }) => {
           const status = getStockStatus(product.stock, product.threshold);
           return (
             <tr key={product._id}>
-              <td><span className="pp-product-name">{product.name}</span></td>
-              <td><span className="pp-category-tag">{product.category}</span></td>
-              <td><span className="pp-price">₹{product.price}</span></td>
-              <td><span className="pp-cost">₹{product.cost}</span></td>
-              <td><span style={{ fontWeight: 600, color: product.stock <= product.threshold ? "rgba(248,113,113,0.9)" : "inherit" }}>{product.stock}</span></td>
-              <td>{product.threshold}</td>
-              <td><span className="pp-category-tag" style={{ background: "rgba(96,165,250,0.1)", color: "#60a5fa" }}>{product.vendorName || "TAXAS"}</span></td>
-              <td><span className="pp-product-barcode">{product.barcode}</span></td>
+              <td>
+                <span className="pp-product-name">{product.name}</span>
+              </td>
+              <td>
+                <span className="pp-category-tag">{product.category}</span>
+              </td>
+              <td>
+                <span className="pp-price">₹{product.price}</span>
+              </td>
+              <td>
+                <span className="pp-cost">₹{product.cost}</span>
+              </td>
+              <td>
+                <span style={{
+                  fontWeight: 700,
+                  color: product.stock <= product.threshold
+                    ? "var(--danger)"
+                    : "var(--text-primary)",
+                }}>
+                  {product.stock}
+                </span>
+              </td>
+              <td style={{ color: "var(--text-secondary)" }}>{product.threshold}</td>
+              <td>
+                <span className="pp-category-tag" style={{
+                  background: "var(--blue-50)",
+                  color: "var(--blue-700)",
+                  border: "1px solid var(--blue-100)",
+                }}>
+                  {product.vendorName || "TAXAS"}
+                </span>
+              </td>
+              <td>
+                <span className="pp-product-barcode">{product.barcode}</span>
+              </td>
               <td>
                 <span className={`pp-stock-badge ${status.cls}`}>{status.label}</span>
               </td>
@@ -51,15 +78,19 @@ const ProductTable = ({ products, onEdit, onDelete }) => {
                   <button
                     type="button"
                     className="pp-act-btn"
-                    title="Edit"
+                    title="Edit product"
                     onClick={() => onEdit(product)}
-                  >✏️</button>
+                  >
+                    &#9998;
+                  </button>
                   <button
                     type="button"
                     className="pp-act-btn danger"
-                    title="Delete"
+                    title="Delete product"
                     onClick={() => onDelete(product._id)}
-                  >🗑️</button>
+                  >
+                    &#10005;
+                  </button>
                 </div>
               </td>
             </tr>
@@ -71,4 +102,3 @@ const ProductTable = ({ products, onEdit, onDelete }) => {
 };
 
 export default ProductTable;
-

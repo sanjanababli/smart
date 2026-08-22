@@ -3,7 +3,7 @@ import { API } from "../../services/api";
 
 export const AIInsightsCard = () => {
   const [insights, setInsights] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [loading,  setLoading]  = useState(true);
 
   useEffect(() => {
     const fetchInsights = async () => {
@@ -21,15 +21,39 @@ export const AIInsightsCard = () => {
   }, []);
 
   return (
-    <div className="db-glass-panel" style={{ gridColumn: "1 / -1", marginBottom: "1.5rem", border: "1px solid rgba(167,139,250,0.4)" }}>
-      <div className="db-panel-header" style={{ marginBottom: "0.5rem" }}>
-        <div className="db-panel-title" style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-          <span>✨</span> AI Business Insights
+    <div
+      className="db-glass-panel"
+      style={{
+        gridColumn: "1 / -1",
+        borderLeft: "3px solid var(--blue-500)",
+        background: "var(--blue-50)",
+        border: "1px solid var(--blue-100)",
+        borderLeftWidth: 3,
+        borderLeftColor: "var(--blue-500)",
+      }}
+    >
+      <div className="db-panel-header" style={{ marginBottom: 8 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <div style={{
+            width: 28, height: 28, borderRadius: 8,
+            background: "var(--blue-500)",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            fontSize: 12, fontWeight: 800, color: "#fff",
+          }}>
+            AI
+          </div>
+          <div className="db-panel-title" style={{ color: "var(--blue-800)" }}>
+            AI Business Insights
+          </div>
         </div>
       </div>
-      <div className="db-panel-body" style={{ color: "rgba(255,255,255,0.9)", fontSize: "0.95rem", lineHeight: "1.6" }}>
+
+      <div style={{ color: "var(--blue-700)", fontSize: 13, lineHeight: 1.65 }}>
         {loading ? (
-          <div style={{ color: "rgba(255,255,255,0.5)", fontStyle: "italic" }}>Analyzing your inventory and sales data...</div>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, color: "var(--text-muted)" }}>
+            <div className="pp-spinner" style={{ width: 14, height: 14, borderWidth: 2 }} />
+            Analyzing your inventory and sales data...
+          </div>
         ) : (
           <p style={{ whiteSpace: "pre-wrap", margin: 0 }}>{insights}</p>
         )}
