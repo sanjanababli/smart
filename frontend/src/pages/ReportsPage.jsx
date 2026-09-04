@@ -10,7 +10,7 @@ import {
   fetchMonthlyProfitReport, fetchWeeklyProfitReport, fetchTopProductsReport, fetchTotalProfitReport,
 } from "../features/reports/services/reportsApi.js";
 import { exportReportsToExcel, exportReportsToPdf } from "../features/reports/utils/exportReports.js";
-import AppSidebar from "./AppSidebar.jsx";
+import AppSidebar from "./Appsidebar.jsx";
 
 ChartJS.register(CategoryScale, LinearScale, ArcElement, BarElement, PointElement, LineElement, Title, Tooltip, Legend);
 

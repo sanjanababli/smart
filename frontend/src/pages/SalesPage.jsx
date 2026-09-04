@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext.jsx";
 import { fetchSaleRecord, fetchSalesRecords } from "../features/sales/services/salesApi.js";
-import AppSidebar from "./AppSidebar.jsx";
+import AppSidebar from "./Appsidebar.jsx";
 
 const SalesPage = ({ setCurrentPage }) => {
   const { user, logout } = useAuth();

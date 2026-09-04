@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext.jsx";
 import { checkoutCart, scanProductByBarcode } from "../features/billing/services/billingApi.js";
-import AppSidebar from "./AppSidebar.jsx";
+import AppSidebar from "./Appsidebar.jsx";
 
 const BillingPage = ({ setCurrentPage }) => {
   const { user, logout } = useAuth();
