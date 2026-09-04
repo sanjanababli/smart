@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext.jsx";
 import { API } from "../services/api.js";
-import AppSidebar from "./Appsidebar.jsx";
+import AppSidebar from "./AppSidebar.jsx";
 
 const ProfilePage = ({ setCurrentPage }) => {
   const { user, logout } = useAuth();

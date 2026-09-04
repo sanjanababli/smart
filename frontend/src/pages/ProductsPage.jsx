@@ -4,7 +4,7 @@ import ProductFilters from "../features/products/components/ProductFilters.jsx";
 import ProductForm from "../features/products/components/ProductForm.jsx";
 import ProductTable from "../features/products/components/ProductTable.jsx";
 import { useProducts } from "../features/products/hooks/useProducts.js";
-import AppSidebar from "./Appsidebar.jsx";
+import AppSidebar from "./AppSidebar.jsx";
 
 const ProductsPage = ({ setCurrentPage }) => {
   const { user, logout } = useAuth();

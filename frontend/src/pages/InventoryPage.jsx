@@ -1,7 +1,7 @@
 import { useAuth } from "../context/AuthContext.jsx";
 import InventoryTable from "../features/inventory/components/InventoryTable";
 import { useInventory } from "../features/inventory/hooks/useInventory";
-import Appsidebar from "./Appsidebar.jsx";
+import AppSidebar from "./AppSidebar.jsx";
 
 const InventoryPage = ({ setCurrentPage }) => {
   const { user, logout } = useAuth();

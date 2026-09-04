@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { useAuth } from "../context/AuthContext.jsx";
 import { authAPI } from "../services/api.js";
-import AppSidebar from "./Appsidebar.jsx";
+import AppSidebar from "./AppSidebar.jsx";
 
 // ─── helpers ────────────────────────────────────────────────────────────────
 
