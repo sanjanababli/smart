@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const required = ["MONGODB_URI", "PORT", "CORS_ORIGIN", "JWT_SECRET"];
+const required = ["MONGODB_URI", "CORS_ORIGIN", "JWT_SECRET"];
 
 for (const key of required) {
   if (!process.env[key]) {
@@ -19,11 +19,13 @@ export const env = {
   rateLimitMax: Number(process.env.RATE_LIMIT_MAX ?? 200),
   jwtSecret: process.env.JWT_SECRET,
   jwtExpiresIn: process.env.JWT_EXPIRES_IN ?? "7d",
-  registrationOtpExpiryMinutes: Number(process.env.REGISTRATION_OTP_EXPIRY_MINUTES ?? 10),
+  registrationOtpExpiryMinutes: Number(
+    process.env.REGISTRATION_OTP_EXPIRY_MINUTES ?? 10
+  ),
   smtpHost: process.env.SMTP_HOST ?? "",
   smtpPort: Number(process.env.SMTP_PORT ?? 587),
   smtpSecure: process.env.SMTP_SECURE === "true",
   smtpUser: process.env.SMTP_USER ?? "",
   smtpPass: process.env.SMTP_PASS ?? "",
-  smtpFromEmail: process.env.SMTP_FROM_EMAIL ?? ""
+  smtpFromEmail: process.env.SMTP_FROM_EMAIL ?? "",
 };
