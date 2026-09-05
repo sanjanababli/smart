@@ -10,8 +10,11 @@ import routes from "./routes/index.js";
 import { notFound } from "./middleware/notFound.js";
 import { errorHandler } from "./middleware/errorHandler.js";
 import { env } from "./config/env.js";
+import { connectDatabase } from "./config/db.js";
 
 const app = express();
+await connectDatabase();
+
 app.set("trust proxy", 1);
 
 app.use(helmet());
