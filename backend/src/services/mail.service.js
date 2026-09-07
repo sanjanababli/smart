@@ -3,9 +3,24 @@ import { env } from "../config/env.js";
 
 let transporter;
 
-const canSendMail = () =>
-  Boolean(env.smtpHost && env.smtpPort && env.smtpUser && env.smtpPass && env.smtpFromEmail);
+const canSendMail = () => {
+  console.log("SMTP CHECK:", {
+    host: Boolean(env.smtpHost),
+    port: Boolean(env.smtpPort),
+    secure: Boolean(env.smtpSecure),
+    user: Boolean(env.smtpUser),
+    pass: Boolean(env.smtpPass),
+    from: Boolean(env.smtpFromEmail)
+  });
 
+  return Boolean(
+    env.smtpHost &&
+    env.smtpPort &&
+    env.smtpUser &&
+    env.smtpPass &&
+    env.smtpFromEmail
+  );
+};
 const getTransporter = () => {
   if (!transporter) {
     transporter = nodemailer.createTransport({
