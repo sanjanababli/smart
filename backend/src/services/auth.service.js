@@ -115,6 +115,14 @@ export const loginUser = async ({ email, password }) => {
 
 export const forgotPassword = async (email) => {
   const normalizedEmail = email.trim().toLowerCase();
+
+  console.log("LIVE DB CHECK:", {
+    db: User.db?.name,
+    collection: User.collection?.name,
+    userCount: await User.countDocuments(),
+    email: normalizedEmail
+  });
+
   const user = await User.findOne({ email: normalizedEmail });
 
   if (!user) {
