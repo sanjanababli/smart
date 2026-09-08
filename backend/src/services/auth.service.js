@@ -116,9 +116,11 @@ export const loginUser = async ({ email, password }) => {
 export const forgotPassword = async (email) => {
   const normalizedEmail = email.trim().toLowerCase();
 
-console.log("LIVE EMAIL CHECK:", await User.find({
-  email: { $regex: "sanjanaababli@gmail.com", $options: "i" }
-}).select("email").lean());
+console.log("LIVE DB TARGET:", {
+  db: User.db?.name,
+  host: User.db?.host,
+  collection: User.collection?.name
+});
 
   const user = await User.findOne({ email: normalizedEmail });
 
