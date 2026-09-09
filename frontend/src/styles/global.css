@@ -109,6 +109,7 @@ button { cursor: pointer; border: none; background: none; }
   width: var(--sidebar-width);
   flex-shrink: 0;
   background: var(--sidebar-bg);
+  border-radius: 0 20px 20px 0;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-right: 1px solid rgba(255,255,255,0.1);
@@ -377,7 +378,7 @@ button { cursor: pointer; border: none; background: none; }
 .db-main {
   flex: 1;
   margin-left: var(--sidebar-width);
-  padding: 28px 32px;
+  padding: 20px 24px;
   display: flex;
   flex-direction: column;
   gap: 24px;
