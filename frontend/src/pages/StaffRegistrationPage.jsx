@@ -520,13 +520,20 @@ const StaffRegistrationPage = ({ setCurrentPage }) => {
   }, [storageKey]);
 
   // ── load staff list from localStorage ────────────────────────────────────
-  const loadStaff = useCallback(() => {
-    setListLoading(true);
-    setListError("");
-    const list = readLocalStaff();
+ const loadStaff = useCallback(async () => {
+  setListLoading(true);
+  setListError("");
+
+  try {
+    const res = await authAPI.getStaff();
+    const list = res?.data?.data || [];
     setStaffList(list);
+  } catch (err) {
+    setListError(err.response?.data?.message || "Failed to load team");
+  } finally {
     setListLoading(false);
-  }, [readLocalStaff]);
+  }
+}, []);
 
   useEffect(() => { loadStaff(); }, [loadStaff]);
 

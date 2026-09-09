@@ -36,6 +36,7 @@ export const authAPI = {
   verifyRegistrationOtp: (payload) => API.post("/auth/register/verify-otp", payload),
   login: (email, password) => API.post("/auth/login", { email, password }),
   registerStaff: (payload) => API.post("/auth/register-staff", payload),
+  getStaff: () => API.get("/auth/staff"),
   deregisterStaff: (payload) => API.delete("/auth/deregister-staff", { data: payload }),
   forgotPassword: (email) => API.post("/auth/forgot-password", { email }),
   resetPassword: (payload) => API.post("/auth/reset-password", payload)

@@ -129,6 +129,17 @@ export const resetPassword = asyncHandler(async (req, res) => {
   res.status(HTTP_STATUS.OK).json(result);
 });
 
+export const getStaff = asyncHandler(async (req, res) => {
+  const staff = await User.find({
+    role: "staff",
+    ownerId: req.user.id
+  }).select("-password");
+
+  res.status(HTTP_STATUS.OK).json({
+    data: staff
+  });
+});
+
 export const getMe = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user.id);
   if (!user) {
